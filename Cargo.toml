@@ -1,0 +1,32 @@
+[package]
+name = "rust_bootloader"
+version = "0.1.0"
+authors = ["Sigvart Hovland <sigvart.m@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+cortex-m = "0.5.8"
+cortex-m-rt = "0.6.5"
+cortex-m-semihosting = "0.3.2"
+panic-halt = "0.2.0"
+nrf52840 = "0.2.0"
+#nrf52840-hal = "0.6.1"
+#nrf52840-pac = "0.6.0"
+
+# this lets you use `cargo fix`!
+[[bin]]
+name = "rust_bootloader"
+test = false
+bench = false
+
+[profile.dev]
+debug=true
+codegen-units = 1
+incremental = false
+
+[profile.release]
+debug=true
+lto=true
+codegen-units=1
+incremental=false
+
